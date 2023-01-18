@@ -14,11 +14,15 @@ function render(newdata) {
   newdata.forEach((element) => {
     list.innerHTML += ` 
     <li id=${element.id}>
+    <div class="li-head">
     <p>${element.value}</p>
+    <ion-icon class="icon" name="checkmark-done-outline"></ion-icon>
+    </div>
     <button class="libutton" onclick="doDelete(this)">del</button>
     <button class="libutton" onclick="edit(this)">edit</button>
     <button class="libutton" onclick="moveUp(this)">move up</button>
     <button class="libutton" onclick="moveDown(this)">move down</button>
+    <button class="libutton" onclick="done(this)">done</button>
     </li>
     `;
   });
@@ -32,6 +36,7 @@ btn.addEventListener("click", (e) => {
     const obj = {
       id: counter,
       value: value,
+      done: false
     };
     data.push(obj);
     render(data);
@@ -104,4 +109,10 @@ function moveDown(btn) {
   }
 }
 
+
+function done(btn) {
+  // let doneId = btn.parentElement.children[0].children[1];
+  // doneId.style.opacity = '100';
+  
+}
 // let nnn = [1, 2, 3, [4, 5, 6], 4];
