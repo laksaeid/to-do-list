@@ -22,9 +22,7 @@ function render(newdata) {
     </li>
     `;
   });
-  // <button class="libutton" onclick="sort(this)">sort</button>
   data = newdata;
-  // console.log(data);
 }
 
 btn.addEventListener("click", (e) => {
@@ -49,8 +47,7 @@ btn.addEventListener("click", (e) => {
     // console.log(data);
   }
   form.reset();
-  counter++;
-  // console.log(data);
+  counter++;;
 });
 
 function doDelete(e) {
@@ -79,9 +76,7 @@ console.log(e);
 }
 function moveUp(btn) {
   const moveUpId = btn.parentElement.id;
-  // console.log(moveUp);
   data.map((value, index) => {
-  //  console.log(value.id,moveUpId);
     if (value.id === +moveUpId) {
       let temp = data[index];
       data[index] = data[index - 1];
@@ -92,31 +87,17 @@ function moveUp(btn) {
 }
 function moveDown(btn) {
   const moveDownId = btn.parentElement.id;
-  // data.map((value, index) => {
-    
-  // })
-  // console.log(moveDownId);
-  // data.map((value, index) => {
-    // console.log(index + 1);
-    // if (value.id === +moveDownId && index + 1 < data.length ) {
-      // let newIndex = index + 1;
-      // // console.log(data[index],data[newIndex]);
-      // let temp = data[index + 1];
-      // data[index + 1] = data[index];
-      // data[index] = temp
-      // let temp = data[index]
-      // data[index] = data[index + 1];
-      // data[index + 1] = temp;
-      // console.log(data[index],temp);
-      // data.splice()
-      
-      // }
-      // })
-  if (+moveDownId < data.length) {
-    data[+moveDownId - 1] = data.splice(+moveDownId, 1, data[+moveDownId - 1])[0]
+  let moveDownIndex;
+    data.find((value, index) => {
+    if (value.id === +moveDownId) {
+         moveDownIndex = index;
+    }
+  })
+  // console.log(moveDownIndex);
+  if (moveDownIndex < data.length-1) {
+    data[moveDownIndex] = data.splice(moveDownIndex+1, 1, data[moveDownIndex])[0]
+    render(data);
   }
-  console.log(data);
-  render(data);
 }
 
 // let nnn = [1, 2, 3, [4, 5, 6], 4];
