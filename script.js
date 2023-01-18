@@ -81,7 +81,7 @@ function moveUp(btn) {
     if (value.id === +moveUpId) {
       moveUpIndex = index;
  }
-    if (value.id === +moveUpId && moveUpIndex > 0git  ) {
+    if (value.id === +moveUpId && moveUpIndex > 0 ) {
       let temp = data[index];
       data[index] = data[index - 1];
       data[index - 1] = temp;
