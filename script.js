@@ -76,8 +76,12 @@ console.log(e);
 }
 function moveUp(btn) {
   const moveUpId = btn.parentElement.id;
+  let moveUpIndex;
   data.map((value, index) => {
     if (value.id === +moveUpId) {
+      moveUpIndex = index;
+ }
+    if (value.id === +moveUpId && moveUpIndex > 0git  ) {
       let temp = data[index];
       data[index] = data[index - 1];
       data[index - 1] = temp;
