@@ -24,7 +24,7 @@ input:focus{
   /* border: 0; */
   outline: none;
 }
-.submit{
+button{
   height: 40px;
   width: 40px;
   /* padding: 10px; */
@@ -42,11 +42,11 @@ input:focus{
 }
 li{
   padding-left: 20px;
-  width: 200px;
+  width: 100%;
 }
 .libutton {
   height: 30px;
-  width: 40px;
+  width: 70px;
   border: 0;
   margin: 10px 0;
   border-radius: 5px;
