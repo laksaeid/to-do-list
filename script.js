@@ -35,6 +35,7 @@ btn.addEventListener("click", (e) => {
     };
     data.push(obj);
     render(data);
+    setItemToLocalStorage(data);
     // console.log(data);
   }
   if (isEditing) {
@@ -42,12 +43,14 @@ btn.addEventListener("click", (e) => {
       if (element.id === +editId) element.value = form.children[0].value;
     });
     render(data);
+    setItemToLocalStorage(data);
     btn.innerHTML = "add";
     isEditing = false;
     // console.log(data);
   }
   form.reset();
   counter++;;
+  console.log(data);
 });
 
 function doDelete(e) {
@@ -56,6 +59,7 @@ function doDelete(e) {
     return element.id !== +deleteId;
   });
   render(newArr);
+  setItemToLocalStorage(newArr)
 }
 
 let editId;
@@ -103,4 +107,16 @@ function moveDown(btn) {
     render(data);
   }
 }
-
+function setItemToLocalStorage(data) {
+  // localStorage.setItem('myItems', Json.stringify(items));
+  localStorage.setItem('userItem', JSON.stringify(data));
+}
+function getItemsFromLocalStorage() {
+  const userItems = localStorage.getItem('userItem');
+  if (userItems) {
+    const parseItems = JSON.parse(userItems);
+    render(parseItems);
+    data = parseItems;
+  }
+}
+getItemsFromLocalStorage();
